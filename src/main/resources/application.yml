@@ -1,0 +1,35 @@
+spring:
+  security:
+    filter:
+      order: 0
+  application:
+    name: vacation-tracker
+  datasource:
+    url: jdbc:h2:mem:devdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ''
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+  output:
+    ansi:
+      enabled: always
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings.trace: false
+      settings.web-allow-others: false
+logging:
+  level:
+    root: WARN
+    org:
+      springframework:
+        security: DEBUG
+      hibernate:
+        SQL: DEBUG
+        type.descriptor.sql.BasicBinder: TRACE
+server:
+  address: 0.0.0.0
